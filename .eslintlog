@@ -1,0 +1,12 @@
+
+C:\Users\MOUSTAPHA BA\appMeteo\src\utils\HourlyForecast.jsx
+  1:10  error  'GetWeather' is defined but never used  no-unused-vars
+  2:8   error  'UnitToggle' is defined but never used  no-unused-vars
+
+C:\Users\MOUSTAPHA BA\appMeteo\src\utils\Weathercode.jsx
+   1:11  error  Fast refresh only works when a file only exports components. Move your component(s) to a separate file. If all exports are HOCs, add them to the `extraHOCs` option  react-refresh/only-export-components
+   1:11  error  'GetWeather' is defined but never used                                                                                                                               no-unused-vars
+  20:18  error  'getWeatherDetails' is not defined                                                                                                                                   no-undef
+
+✖ 5 problems (5 errors, 0 warnings)
+

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+
 function useWeather(city = 'Berlin') {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -13,12 +14,12 @@ function useWeather(city = 'Berlin') {
         const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`);
         const geoData = await geoRes.json();
         
-        if (!geoData.results) throw new Error('Ville non trouvée');
+        if (!geoData.results) throw new Error('city not found, thank you try again');
         const { latitude, longitude, name, country } = geoData.results[0];
 
         // 2. Obtenir les données météo actuelles et prévisions
         const weatherRes = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,precipitation&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min&timezone=auto`
+         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,precipitation,weathercode&hourly=temperature_2m&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`
         );
         const weatherData = await weatherRes.json();
 

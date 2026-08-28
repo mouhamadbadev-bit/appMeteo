@@ -4,37 +4,60 @@ import  SearchBar  from './components/SearchBar';
 import  CurrentCard  from './components/CurrentCard';
 import  StatsGrid  from './components/StatsGrid';
 import  DailyForecast  from './components/DailyForecast';
+import style from './index.module.css';
+import "./index.css";
+
 
 export default function App() {
   const [city, setCity] = useState('Berlin');
   const { data, loading, error } = useWeather(city);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 p-6 md:p-12">
-      <div className="max-w-5xl mx-auto">
-        <header className="flex justify-between items-center">
-          <h1 className="text-xl font-bold flex items-center gap-2">☀️ Weather Now</h1>
+    <div >
+      <div className="">
+        <header className=''>
+          <h1 className={`${style.chargement} text-7xl text-center antialiased pr-6 text-cyan-300`}>☀️ Weather Now</h1>
+          <br />
+          <br />
+          <br />
+          <br />
         </header>
+        <div className="relative">
+          <h1 className="antialiased justify-center-safe text-center text-4xl text-cyan-300 ">How's the sky looking  today?</h1>
+          <br />
+        </div>
 
         <SearchBar onSearch={setCity} />
-
-        {loading && <p className="text-center py-10">Chargement des données...</p>}
-        {error && <p className="text-center text-red-400 py-10">{error}</p>}
+         
+        {loading && <p className={`${style.m} justify-center text-cyan-300 text-5xl flex`}>Chargement des données...</p>}
+        {error && <p className="text-cyan-300 text-center text-6xl ">{error}</p>}
 
         {data && !loading && !error && (
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="md:col-span-2">
-              <CurrentCard data={data} />
-              <StatsGrid current={data.current} />
-            </div>
-          </div>
+          
+           <div>
+            <div > <CurrentCard data={data} /> </div>
+            
+            <div> <StatsGrid current={data.current} /> </div>
+           </div> 
+             
+        
         )}
       </div>
 
-      <div className="max-w-5xl mx-auto mt-6">
-        {data && !loading && !error && <DailyForecast daily={data.daily} />}
-      </div>
+    <div>
+  {data && !loading && !error && (
+    <DailyForecast daily={data?.daily} unit={data?.unit} />
+  )}
+</div>
+
+
+
+
+
     </div>
+
+
+    
   );
 }   
 

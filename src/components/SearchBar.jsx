@@ -5,19 +5,21 @@ export default function  SearchBar({ onSearch }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.trim()) onSearch(input);
+    if (input.trim())
+      //permet si la saisie est valide, cette function props envoie le text saisie 
+      onSearch(input);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 my-6">
+    <form onSubmit={handleSubmit} className="flex gap-2 my-6 justify-center relative text-amber-50">
+ 
       <input
         type="text"
-        placeholder="Rechercher une ville..."
+        placeholder="  Rechercher une ville..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="bg-slate-800 text-white px-4 py-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium">
+        className="p-3 border-neutral-50 bg-gray-600 rounded-2xl w-2xl placeholder:text-amber-50 accent-gray-600 outline-0 " />
+      <button type="submit" className=''>
         Search
       </button>
     </form>
