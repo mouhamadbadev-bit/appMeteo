@@ -16,28 +16,31 @@ export default function App() {
     <div >
       <div className="">
         <header className=''>
-          <h1 className={`${style.chargement} text-7xl text-center antialiased pr-6 text-cyan-300`}>☀️ Weather Now</h1>
+          <h1 className={`${style.chargement} text-7xl text-center flex antialiased mt-3 pr-6 text-cyan-300 sm:text-5xl sm:mt-4 sm:justify-center sm:flex`}>☀️ Weather Now</h1>
           <br />
           <br />
-          <br />
-          <br />
+        
+        
         </header>
         <div className="relative">
-          <h1 className="antialiased justify-center-safe text-center text-4xl text-cyan-300 ">How's the sky looking  today?</h1>
+          <h1 className="antialiased justify-center-safe text-center text-4xl text-cyan-300 sm:text-3xl sm:mt-4 sm:justify-center mx-1.5">How's the sky looking  today?</h1>
           <br />
         </div>
 
         <SearchBar onSearch={setCity} />
          
-        {loading && <p className={`${style.m} justify-center text-cyan-300 text-5xl flex`}>Chargement des données...</p>}
+       <div className="">
+
+ {loading && <p className={`${style.m} justify-center text-cyan-300 text-5xl flex`}>Chargement des données...</p>}
         {error && <p className="text-cyan-300 text-center text-6xl ">{error}</p>}
 
         {data && !loading && !error && (
           
            <div>
-            <div > <CurrentCard data={data} /> </div>
+            <div className=""> <CurrentCard data={data} /> </div>
             
-            <div> <StatsGrid current={data.current} /> </div>
+            <div className=" "> 
+              <StatsGrid  current={data.current} /> </div>
            </div> 
              
         
@@ -49,6 +52,8 @@ export default function App() {
     <DailyForecast daily={data?.daily} unit={data?.unit} />
   )}
 </div>
+
+       </div>
 
 
 
