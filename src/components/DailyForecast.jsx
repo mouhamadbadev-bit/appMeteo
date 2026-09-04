@@ -27,7 +27,7 @@ function DailyForecast({ daily }) {
     <>
       <h3 className="text-cyan-400 text-4xl text-center m-7 hover:scale-105 transition duration-300">Daily forecast</h3>
 
-      <section className=" justify-center ml-1.5 min-[375px]:ml-4.5 min-[414px]:ml-6.5  min-[412px]:ml-8   min-[360px]:ml-3.5  min-[768px]:ml-1  min-[479px]:ml-9 ">
+      <section className=" justify-center ml-1.5 min-[375px]:ml-4.5 min-[414px]:ml-6.5  min-[412px]:ml-8   min-[360px]:ml-3.5  min-[768px]:ml-1 min-[503px]:max-[510px]:ml-9c min-[479px]:ml-9  min-[457px]:max-[500px]:ml-8  min-[500px]:max-[555px]:ml-18  min-[555px]:max-[610px]:ml-20  min-[610px]:max-[670px]:ml-24  min-[670px]:max-[710px]:ml-28  min-[710px]:max-[768px]:ml-32 ">
         <div className=" gap-x-3 grid grid-cols-3 md:flex md:justify-center md:m-1.5 md:gap-y-1  ">
           {daily.time.map((time, index) => {
             // Détection automatique de la langue de l'utilisateur
